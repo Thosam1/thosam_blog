@@ -14,8 +14,8 @@ import Link from 'next/link';
 import { graphCMSImageLoader } from '../util';
 
 const PostCard = ({ post }) => (
-  <div className="bg-light_postcard dark:bg-[#141414] rounded-lg p-0 lg:p-8 pb-12 mb-8">
-
+  // <Link href={`/post/${post.slug}`}>
+  <div className="bg-light_postcard dark:bg-[#141414] rounded-lg p-0 lg:p-8 pb-12 mb-8 transition duration-500 ease transform hover:scale-105">
     {/* image */}
     <div className="relative overflow-hidden pb-80 mb-6">
       <img 
@@ -57,9 +57,9 @@ const PostCard = ({ post }) => (
     </div>
 
     {/* excerpt text */}
-    <p className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20 mb-8 dark:text-[#b4b4b4]">
-      {post.excerpt}
-    </p>
+    {/* <p className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20 mb-5 dark:text-[#b4b4b4]">
+      {textCropped(post.excerpt)}
+    </p> */}
 
     {/* Button continue reading */}
     <div className="text-center">
@@ -68,6 +68,13 @@ const PostCard = ({ post }) => (
       </Link>
     </div>
   </div>
+  // </Link>
 );
+
+// often excerpt is too long so we crop
+const textCropped = (text) => {
+  var cropped = text.substring(0, 250) + " ...";
+  return cropped;
+}
 
 export default PostCard;
