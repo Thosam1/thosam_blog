@@ -6,11 +6,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
     "graphql": "^16.3.0",
     "graphql-request": "^4.2.0",
     "html-react-parser": "^1.4.10",
     "moment": "^2.29.1",
     "next": "latest",
+    "next-themes": "^0.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-multi-carousel": "^2.8.0",
