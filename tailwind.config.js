@@ -21,7 +21,6 @@ module.exports = {
         'hover_color': '#56A9B9',
 
         'form_color': '#E4E6F5',
-  
       },
 
       // custom made
