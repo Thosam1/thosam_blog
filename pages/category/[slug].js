@@ -7,7 +7,10 @@ import { getCategories, getCategoryPost } from '../../services';
 // components
 import { PostCard, Categories, Loader } from '../../components';
 
-const CategoryPost = ({ posts }) => {
+// helper
+import { capitalize } from '../../helper';
+
+const CategoryPost = ({ posts, categoryName }) => {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -16,6 +19,7 @@ const CategoryPost = ({ posts }) => {
 
   return (
     <div className="container mx-auto px-10 mb-8">
+      <h3 className="text-xl pt-4 mb-4 font-semibold pb-3">🧐 {capitalize(categoryName)}</h3>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
           {posts.map((post, index) => (
@@ -36,9 +40,10 @@ export default CategoryPost;
 // Fetch data at build time
 export async function getStaticProps({ params }) {
   const posts = await getCategoryPost(params.slug);
+  var categoryName = params.slug;
 
   return {
-    props: { posts },
+    props: { posts, categoryName },
   };
 }
 
